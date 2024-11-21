@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@layer reset {
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  
+    body {
+      line-height: 1.5;
+    }
+  
+    img, picture, video, canvas, svg {
+      display: block;
+      max-inline-size: 100%;
+    }
+  
+    input, button, textarea, select {
+      font: inherit;
+      letter-spacing: inherit;
+      word-spacing: inherit;
+      color: currentColor;
+    }
+  
+    p, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+    }
+  
+    ol, ul {
+      list-style: none;
+    }
+  
+    :not([class]) {
+      h1&, h2&, h3&, h4&, h5&, h6& {
+        margin-block: 0.75em;
+        line-height: 1.25;
+        text-wrap: balance;
+        letter-spacing: -0.05ch;
+      }
+  
+      p&, ol&, ul& {
+        margin-block: 1em;
+      }
+  
+      ol&, ul& {
+        padding-inline-start: 1.5em;
+        list-style: revert;
+      }
+  
+      li& {
+        margin-block: 0.5em;
+      }
+    }
+  }
+
+  :root {
+    /* Colores de Fondo */
+    --header-bg: #A8C3B4; /* Verde Salvia */
+    --footer-bg: #7D9DAC; /* Azul Grisáceo */
+    --main-bg: #FAF8F3; /* Blanco Cálido */
+    --aside-bg: #D6C1E1; /* Lila Lavanda */
+    --spotify-player-bg: #D6C1E1; /* Lila Lavanda */
+
+    /* Colores de Texto */
+    --text-primary: #4A4A4A; /* Gris Profundo */
+    --text-secondary: #7D9DAC; /* Azul Grisáceo */
+    --text-on-light: #FAF8F3; /* Blanco Cálido para contraste en fondos oscuros */
+
+    /* Botones */
+    --button-bg: #A8C3B4; /* Verde Salvia */
+    --button-text: #FAF8F3; /* Blanco Cálido */
+    --button-hover-bg: #91B19C; /* Verde Salvia más oscuro */
+
+
+    --action-button-bg: #E6B566; /* Mostaza Suave */
+    --action-button-text: #FAF8F3; /* Blanco Cálido */
+    --action-button-hover-bg: #D4A157; /* Mostaza Suave más oscuro */
+
+    /* Otros Colores */
+    --border-color: #E3E3E3; /* Gris Claro */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave */
+
+    /*fuente*/
+    --font-primary: 'Poppins', sans-serif; /* Fuente principal para texto */
+
+
+    /* Sección Pomodoro Timer */
+    --pomodoro-bg: #F4E6D4; /* Beige pastel cálido */
+    --pomodoro-text: #4A4A4A; /* Gris profundo */
+
+    /* Botones Pomodoro Timer */
+    --pomodoro-start-bg: #A8C3B4; /* Verde Salvia */
+    --pomodoro-start-text: #FAF8F3; /* Blanco Cálido */
+    --pomodoro-start-hover: #91B19C; /* Verde Salvia oscuro */
+
+    --pomodoro-pause-bg: #D6C1E1; /* Lila Lavanda */
+    --pomodoro-pause-text: #4A4A4A; /* Gris profundo */
+    --pomodoro-pause-hover: #C3A8D4; /* Lavanda más oscuro */
+
+    --pomodoro-reset-bg: #E6B566; /* Mostaza Suave */
+    --pomodoro-reset-text: #FAF8F3; /* Blanco Cálido */
+    --pomodoro-reset-hover: #D4A157; /* Mostaza más oscuro */
+}
+
+body{
+    background-color: var(--principal-BackgrounClr);
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: minmax(10rem, 14rem) 2fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "header header"
+    "aside main"
+    "footer footer";
+    font-family: var(--font-primary);
+    font-size: 16px;
+}
+
+#header{
+    background-color: var(--header-bg);
+    grid-area: header;
+    padding: .6rem;
+    
+    color: var(--text-primary);
+  
+    
+    & .header-title{
+      font-size: clamp(1rem, 5vw, 2.4rem);
+      text-align: center;
+    }
+}
+#main{
+    background-color: var(--pomodoro-bg);
+    grid-area: main;
+    
+
+    & div{
+      width: 5rem;
+      height: 5rem;
+      background-color: #a0bea1;
+    }
+
+    & #main-todos-section{
+      display: grid;
+      grid-template-columns:minmax(20rem, 35rem);
+      justify-content: center;
+      gap: .6rem;
+      margin: .6rem;
+      grid-auto-flow: dense;
+    }
+    & #main-todos-section>div{
+      min-width: 100%;
+      border-radius: 1rem;
+      padding: 1rem;
+      
+    }
+}
+
+#aside{
+    background-color: var(--aside-bg);
+    grid-area: aside;
+    color: var(--text-primary);
+
+    & .project-title-icon-container{
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    & .title-project{
+      text-align: center;
+      font-size: clamp(1rem, 3.2vw, 1.7rem);
+    }
+
+    & .add-project{
+      border: none;
+      background-color: transparent;
+    }
+
+    & .list-projects{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+
+    }
+    & .project-name-input{
+      outline: none;
+      border: none;
+      background-color: var(--aside-bg);
+      max-width: 80%;
+      padding: 2px 10px;
+      margin: 5px 5px;
+  
+
+    }
+    & .project-name-input:focus{
+      outline: none;
+      border-bottom: 1px solid black;
+      
+
+    }
+    & .list-projects>li{
+      text-align: center;
+      font-size: clamp(.6rem, 2.5vw, 1rem);
+      padding: 8px;
+     
+    }
+    & .list-projects>li:focus{
+      background-color: black;
+     
+    }
+
+    & .list-projects>.selected{
+      background-color: #ad96b9a8;
+      border-radius: 10px;
+    }
+
+
+}
+
+
+.pomodoro-timer {
+  text-align: center;
+  background: var(--pomodoro-bg);
+  padding: 1rem;
+
+
+  color: var(--text-primary);
+  
+  
+}
+& button{
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(.3rem, 1.3vw, 1.6rem);
+  padding: 5px;
+
+}
+& #start{
+  background-color: var(--pomodoro-start-bg);
+  color: var(--pomodoro-start-text);
+  
+}
+
+& #reset{
+  background-color: var(--pomodoro-reset-bg);
+  color: var(--pomodoro-reset-text);
+}
+
+& #pause{
+  background-color: var(--pomodoro-pause-bg);
+  color: var(--pomodoro-reset-text);
+}
+
+
+& .break {
+  background-color: #66bb7a; 
+  color: white;
+}
+
+& .pomodoro {
+  background-color: #5ba1ec; 
+  color: white;
+}
+
+#timer {
+  font-size: clamp(1rem, 3vw, 3rem);
+  margin: 1rem 0;
+}
+
+
+#footer{
+  background-color: var(--footer-bg);
+  grid-area: footer;
+  padding: .6rem;
+  text-align: center;
+}
+
+
+#project-item-container{
+  display: flex;
+  flex-direction: column;
+  
+}
